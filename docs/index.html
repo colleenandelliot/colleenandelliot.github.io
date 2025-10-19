@@ -5,99 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Colleen & Elliot's Wedding</title>
     <style>
+    :root {
+      --cream: #fff9f5;
+      --pink: #f5e8df;
+      --text: #5b4a42;
+      --accent: #7a6e63;
+    }
+
     body {
       margin: 0;
       font-family: 'Georgia', serif;
       background-color: #fefefc;
-      color: #333;
+      color: var(--text);
       scroll-behavior: smooth;
+      max-width: 100vw;
     }
-    nav {
-      position: sticky;
-      top: 0;
-      background: #f5e8df;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      border-bottom: 1px solid #ddd;
-      z-index: 1000;
-    }
-    nav a {
-      text-decoration: none;
-      color: #5b4a42;
-      font-weight: bold;
-      padding: 8px 12px;
-    }
-    nav a:hover {
-      background: #e0d6cf;
-      border-radius: 5px;
-    }
+
     header {
-      background: #f5e8df;
+      background: var(--pink);
       padding: 60px 20px;
       text-align: center;
     }
+
     header h1 {
-      font-size: 3em;
+      font-size: 2.5rem;
       margin-bottom: 10px;
-      color: #3e3e3e;
     }
+
     header p {
-      font-size: 1.5em;
+      font-size: 1.2rem;
       color: #7a6e63;
     }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--pink);
+      padding: 10px 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: #e0d6cf;
+    }
+
     .section {
       width: 100%;
-      padding: 60px 20px;
+      padding: 50px 20px;
       display: flex;
       justify-content: center;
     }
+
     .section-inner {
+      width: 85%;
       max-width: 900px;
-      width: 100%;
     }
-    .section1 { background-color: #fff9f5; }
-    .section2 { background-color: #f5e8df; }
+
+    .section1 { background-color: var(--cream); }
+    .section2 { background-color: var(--pink); }
+
     h2 {
-      color: #5b4a42;
+      font-size: 1.8rem;
       margin-bottom: 20px;
     }
+
     p, li {
-      font-size: 1.1em;
+      font-size: 1rem;
       line-height: 1.6;
     }
+
+    ul {
+      padding-left: 20px;
+    }
+
     .btn {
       display: inline-block;
       margin-top: 20px;
       padding: 12px 24px;
-      background-color: #7a6e63;
+      background-color: var(--accent);
       color: white;
       text-decoration: none;
-      font-size: 1em;
+      font-size: 1rem;
       border-radius: 6px;
       transition: background 0.3s;
+      max-width: 75%;
     }
+
     .btn:hover {
       background-color: #5a4f47;
     }
+
     .photo-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
     }
+
     .photo-gallery img {
       width: 100%;
       height: auto;
       border-radius: 8px;
       object-fit: cover;
     }
+
     footer {
       text-align: center;
       padding: 30px 20px;
-      background: #f5e8df;
+      background: var(--pink);
       color: #6e645c;
       font-size: 0.9em;
+    }
+
+    /* Small device tweaks */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      iframe {
+         max-width: 75%;
+         height: auto;
+      }
+
+      nav {
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -114,7 +166,7 @@
     <a href="#agenda">Agenda</a>
     <a href="#photos">Photos</a>
     <a href="#travel">Travel</a>
-    <a href="#accomodation">Accommodation</a>
+    <a href="#accommodation">Accommodation</a>
     <a href="#registry">Registry</a>
     <a href="#rsvp">RSVP</a>
 </nav>
@@ -170,9 +222,9 @@
     </div>
 </div>
 
-<div id="accomodation" class="section section1">
+<div id="accommodation" class="section section1">
     <div class="section-inner">
-        <h2>Accomodation</h2>
+        <h2>Accommodation</h2>
         <p>Q Station also has accommodation! You can get a discount using the code XXX</p>
         <h3>Area</h3>
         <ul>
