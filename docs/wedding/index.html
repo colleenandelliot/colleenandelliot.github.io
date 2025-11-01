@@ -8,39 +8,51 @@
     :root {
       --cream: #fff9f5;
       --pink: #f5e8df;
-      --text: #5b4a42;
-      --accent: #7a6e63;
+      --off_white: #F9F9F9;
+      --light_grey: #F6F4F1;
+      --dark_grey: #484644;
+      --light_green: #BDDACC;
+      --grey_green: #5C987C;
+      --dark_green: #005B4C;
+      --text: --dark_grey;
+      --accent: --dark_green;
+      --bg_colour: --off_white;
+      --bg_highlight: --light_green;
     }
 
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #fefefc;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg_colour);
       color: var(--text);
       scroll-behavior: smooth;
-<!--      max-width: 90vw;-->
     }
 
     header {
-      background: var(--pink);
-      padding: 60px 20px;
+      background: var(--light_green);
+      padding: 40px 20px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      font-size: 3.5rem;
+      font-family: Georgia;
+      letter-spacing: 2.5px;
+      margin-bottom: 25px;
     }
 
     header p {
       font-size: 1.2rem;
-      color: #7a6e63;
+      font-style: oblique;
+      color: var(--dark_grey);
+      margin-top: 5px;
+      margin-bottom: 5px;
     }
 
     nav {
       position: sticky;
       top: 0;
-      background: var(--pink);
+      background: var(--light_green);
       padding: 10px 15px;
       display: flex;
       flex-wrap: wrap;
@@ -59,26 +71,27 @@
     }
 
     nav a:hover {
-      background: #e0d6cf;
+      background: var(--grey_green);
+      color: var(--off_white);
     }
 
     .section {
       width: 100%;
-      border: 50px 20px;
+      padding: 50px 20px;
       display: flex;
       justify-content: center;
     }
 
     .section-inner {
-      width: 85%;
+      width: 100%;
       max-width: 900px;
     }
 
-    .section1 { background-color: var(--cream); }
-    .section2 { background-color: var(--pink); }
+    .section1 { background-color: var(--bg_colour);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.08);}
 
     h2 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       margin-bottom: 20px;
     }
 
@@ -93,19 +106,18 @@
 
     .btn {
       display: inline-block;
-      margin-bottom: 20px;
+      margin-top: 20px;
       padding: 12px 24px;
-      background-color: var(--accent);
+      background-color: var(--dark_green);
       color: white;
       text-decoration: none;
       font-size: 1rem;
       border-radius: 6px;
       transition: background 0.3s;
-      max-width: 75%;
     }
 
     .btn:hover {
-      background-color: #5a4f47;
+      background-color: var(--grey_green);
     }
 
     .photo-gallery {
@@ -121,10 +133,62 @@
       object-fit: cover;
     }
 
+    .container{
+      margin:100px auto;
+      width:100rem auto;
+      justify-content: center;
+    }
+
+    .calendar{
+      background-color: #fffFFF;
+      width:100rem auto;
+      box-shadow: 0px 0px 35px -16px rgba(0,0,0,0.75);
+      font-family: 'Roboto', sans-serif;
+      padding: 20px 30px;
+      color:var(--dark_grey);
+      display: inline-block;
+    }
+
+    .calendar_header{
+      border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .calendar_events{
+      color:var(--dark_grey);
+    }
+
+    .event_item{
+      margin: 18px 0;
+      padding:5px;
+      cursor: pointer;
+    }
+
+    .ei_Dot,.ei_Title{
+      display:inline-block;
+    }
+
+    .ei_Dot{
+      border-radius:50%;
+      width:7px;
+      height: 7px;
+      background-color: var(--dark_grey);
+      box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75);
+    }
+
+    .ei_Title{
+      margin-left:10px;
+      color:var(--dark_green);
+    }
+
+    .ei_Copy{
+      margin-left:25px;
+      margin-top:20px;
+    }
+
     footer {
       text-align: center;
       padding: 30px 20px;
-      background: var(--pink);
+      background: var(--bg_colour);
       color: #6e645c;
       font-size: 0.9em;
     }
@@ -135,13 +199,7 @@
         font-size: 2rem;
       }
 
-      iframe {
-         max-width: 75%;
-         height: auto;
-      }
-
       nav {
-        position: relative;
         flex-direction: column;
         align-items: center;
       }
@@ -151,23 +209,35 @@
         text-align: center;
       }
     }
+
+    *{
+      box-sizing:border-box;
+    }
+
+
+
+
+
+}
   </style>
 </head>
 <body>
 
 <header id="home">
-  <h1>Colleen O'Connor & Elliot Smith</h1>
-  <p>We're getting married – 14th April at 3:00 PM</p>
+  <p><i>Together with their families</i></p>
+  <h1>Colleen & Elliot </h1>
+  <p><i>Invite you to join them on</i></p>
+  <h2>Saturday, March 14th 2026</h2>
+  <p><i>to celebrate their wedding at the</i></p>
+  <p><i>Q Station Manly in Sydney, Australia</i></p>
 </header>
 
 <nav>
   <a href="#home">Home</a>
   <a href="#ourstory">Our Story</a>
-  <a href="#agenda">Agenda</a>
-  <a href="#photos">Photos</a>
+  <a href="#schedule">Schedule</a>
   <a href="#travel">Travel</a>
-  <a href="#accommodation">Accommodation</a>
-  <a href="#registry">Registry</a>
+  <a href="#faq">FAQs</a>
   <a href="#rsvp">RSVP</a>
 </nav>
 
@@ -175,75 +245,120 @@
   <div class="section-inner">
     <h2>Our Story</h2>
     <p>
-      Colleen to fill out a story of love, international borders and the kiss that started it all.
+      One rainy afternoon, after a wet round of golf, two friends confessed that they liked each other.
+      There was just one problem — Elliot had just accepted a job in America and was preparing to move!
+    </p>
+    <p>
+      Both insisted they weren’t the “long-distance relationship” type, so they decided to simply make the most of the few weeks before the big move. What began as an easy friendship quickly blossomed into something much more. Maybe, they thought, one day they’d reconnect.
+    </p>
+    <p>
+      But even across the distance, day after day, month after month, their connection only grew stronger. Sharing “linners” (lunch-dinners across time zones) and keeping each other’s spirits high through the uncertainty of the COVID years, they spent three years apart — yet never truly apart.
+    </p>
+    <p>
+      When Elliot finally returned to Sydney, they built a life together filled with laughter, adventure, and love.
+      Now, seven years later, they’re thrilled to celebrate the next chapter of their story — surrounded by the friends and family who have supported them every step of the way.
     </p>
   </div>
 </div>
 
-<div id="agenda" class="section section2">
+<div id="schedule" class="section section1">
   <div class="section-inner">
-    <h2>Agenda</h2>
-    <ul>
-      <li><strong>Ceremony:</strong> 3:00 PM</li>
-      <li><strong>Reception:</strong> 6:00 PM</li>
-    </ul>
-  </div>
-</div>
-
-<div id="photos" class="section section1">
-  <div class="section-inner">
-    <h2>Photos</h2>
-    <div class="photo-gallery">
-      <img src="https://via.placeholder.com/400x300?text=Photo+1" alt="Photo 1">
-      <img src="https://via.placeholder.com/400x300?text=Photo+2" alt="Photo 2">
-      <img src="https://via.placeholder.com/400x300?text=Photo+3" alt="Photo 3">
-      <img src="https://via.placeholder.com/400x300?text=Photo+4" alt="Photo 4">
+    <div class="calendar light">
+      <div class="calendar_header">
+        <h1 class = "header_title">Schedule</h1>
+        <p><i>We kindly ask guests to arrive before 3:00 p.m. so we can begin the ceremony on time.</i></p>
+      </div>
+      <div class="calendar_events">
+        <div class="event_item">
+          <div class="ei_Dot"></div>
+          <div class="ei_Title"><b>3:30 pm</b></div>
+          <div class="ei_Title">Ceremony</div>
+        </div>
+        <div class="event_item">
+          <div class="ei_Dot"></div>
+          <div class="ei_Title"><b>4:30 pm</b></div>
+          <div class="ei_Title">Pre-reception Drinks</div>
+        </div>
+        <div class="event_item">
+          <div class="ei_Dot"></div>
+          <div class="ei_Title"><b>6:00 pm</b></div>
+          <div class="ei_Title">Reception</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div id="travel" class="section section2">
+<div id="travel" class="section section1">
   <div class="section-inner">
-    <h2>Travel</h2>
+    <h2>How to get there</h2>
     <p>
-      The ceremony and celebration will be held at: <strong>Q Station, Manly</strong>
+      The ceremony and celebration will be held at <strong> The Q Station, Manly</strong>
     </p>
+    <p>The Q Station entrance is easily accessible by car or ferry. A shuttle service is available on site to
+      assist guests to navigate from the entrance to the ceremony and reception venues and back to the carpark after the event.</p>
+    <h3>Car</h3>
+    <p>
+      If you are travelling by car, there is a car park at the entrance of Q station you can park in. From the entrance, you can take the complimentary shuttle service to the ceremony location by the front office.
+    </p>
+    <h3>Ferry</h3>
+    <p>If you'd like to take public transport, consider the scenic Manly Ferry. It is a 35-minute walk from Manly or a 5-minute Uber/taxi trip.
+      There may be carpool available to get guests from the ferry to the venue - please reach out to Colleen and Elliot for more information.  Alternatively, there is a public bus or a Q Station shuttle that you can take to and from Manly Wharf.</p>
     <p>
       <a href="https://maps.app.goo.gl/seLTHFbpTCmWZvz17" target="_blank">
         View on Google Maps
       </a>
     </p>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.9952057570827!2d151.2939616!3d-33.8124368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ab70fcd76709%3A0x2f49080956f7d1a9!2sQ%20Station%20Manly!5e0!3m2!1sen!2sau!4v1760863659490!5m2!1sen!2sau" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <p>
-      Q Station is easily accessible by car or ferry. If you're arriving from central Sydney, consider the scenic Manly Ferry.
-      If you are travelling by car, there is a car park at the entrance of Q station you can park in. As the wedding is located
-      within a National Park with endangered wildlife, driving is not permitted. THere is a complimentary shuttle service to assist
-      you get around and is available 24hrs.
-    </p>
-    <p>
-      It is a 35-minute walk from Manly or a 5-minute Uber/taxi trip. Alternatively, there is a public bus or a Q Station shuttle that you can take to and from Manly Wharf.
-    </p>
+
   </div>
 </div>
 
-<div id="accommodation" class="section section1">
+<div id="faq" class="section section1">
   <div class="section-inner">
-    <h2>Accommodation</h2>
-    <p>Q Station also has accommodation! You can get a 10% discount by
-      <a href="https://book-directonline.com/properties/qstationmanly1direct?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2026-03-14&checkOutDate=2026-03-15&promocode=WED1403">booking directly at Q station.</a>
-    </p>
+    <div class="calendar light">
+      <div class="calendar_header">
+        <h1 class = "header_title">FAQs</h1>
+      </div>
+      <div class="calendar_events">
+        <div class="event_item">
+          <div class="ei_Dot"></div>
+          <div class="ei_Title">When is the RSVP deadline?</div>
+          <div class="ei_Copy">Please RSVP by <b>15th January 2026.</b></div>
+        </div>
+        <div class="event_item">
+          <div class="ei_Dot"></div>
+          <div class="ei_Title">What is the dress code?</div>
+          <div class="ei_Copy">Formal / Cocktail - <i>think garden party formal (a step up from cocktail, but not black tie)</i>.
+            The ceremony will (hopefully) take place outdoors, so please dress comfortably for March afternoon in Sydney. The reception will be held indoors.</div>
+        </div>
+        <div class="event_item">
+          <div class="ei_Dot"></div>
+          <div class="ei_Title">Is there accommodation nearby?</div>
+          <div class="ei_Copy">Yes! Q Station has accommodation available onsite! A few of us will be staying there the Saturday night. All guests of the wedding can use our 10% discount code by
+            <a href="https://book-directonline.com/properties/qstationmanly1direct?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2026-03-14&checkOutDate=2026-03-15&promocode=WED1403">booking directly at Q station.</a>
+          </div>
+        </div>
+        <div class="event_item">
+          <div class="ei_Dot"></div>
+          <div class="ei_Title">Is there a registry for the wedding</div>
+          <div class="ei_Copy">Your presence is the greatest gift to us. However, if you wish to contribute, a wishing well available will be available on the day.</div>
+        </div>
+        <div class="event_item">
+          <div class="ei_Dot"></div>
+          <div class="ei_Title">What time should we arrive?</div>
+          <div class="ei_Copy">Please arrive by 3:00 p.m. so we can begin the ceremony promptly at 3:30 p.m. It may take some time for the shuttle to move guests from the entrance to the ceremony location</div>
+        </div>
+        <div class="event_item">
+          <div class="ei_Dot"></div>
+          <div class="ei_Title">Are children welcome?</div>
+          <div class="ei_Copy">We hope you will understand our decision to make the wedding children-free, and take the opportunity to let your hair down and celebrate in style!</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div id="registry" class="section section2">
-  <div class="section-inner">
-    <h2>Registry</h2>
-    <p>
-      Your presence is the greatest gift of all. But if you’d like to contribute, we will have a wishing well
-      with optional red packets available.
-    </p>
-  </div>
-</div>
 
 <div id="rsvp" class="section section1">
   <div class="section-inner">
@@ -251,12 +366,12 @@
     <p>
       Please let us know if you'll be joining us to celebrate!
     </p>
-    <a class="btn" href="https://forms.gle/your-rsvp-link" target="_blank">RSVP Now</a>
+    <a class="btn" href="https://forms.gle/your-rsvp-link" target="_blank">RSVP Form</a>
   </div>
 </div>
 
 <footer>
-  With love, Colleen & Elliot – We look forward to celebrating with you on 14th April 💍
+  With love, Colleen & Elliot – We look forward to celebrating with you on 14th March 💍
 </footer>
 
 </body>
