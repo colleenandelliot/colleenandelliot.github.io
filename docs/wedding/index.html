@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Colleen & Elliot's Wedding</title>
-  <style>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Colleen & Elliot's Wedding</title>
+    <style>
     :root {
-      --cream: #fff9f5;
+      --cream: #faf5ea;
       --pink: #f5e8df;
       --off_white: #F9F9F9;
-      --light_grey: #F6F4F1;
+      --light_grey: #dddbd8;
+      --med_grey: #E0E0E0;
       --dark_grey: #484644;
       --light_green: #BDDACC;
       --grey_green: #5C987C;
@@ -29,9 +30,12 @@
     }
 
     header {
-      background: var(--light_green);
+      background: transparent var(--light_green);
       padding: 40px 20px;
       text-align: center;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), url("./assets/banner-bkgrd-smaller.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     header h1 {
@@ -39,20 +43,32 @@
       font-family: Georgia;
       letter-spacing: 2.5px;
       margin-bottom: 25px;
+      color: var(--cream);
+      text-shadow: 2px 2px var(--dark_grey);
+    }
+
+    header h2 {
+      font-size: 1.6rem;
+      color: var(--light_green);
+      text-shadow: 2px 2px var(--dark_green);
+      margin-top: 5px;
+      margin-bottom: 5px;
     }
 
     header p {
       font-size: 1.2rem;
       font-style: oblique;
-      color: var(--dark_grey);
+      color: var(--med_grey);
       margin-top: 5px;
       margin-bottom: 5px;
+      text-shadow: 2px 2px var(--dark_grey);
+
     }
 
     nav {
       position: sticky;
       top: 0;
-      background: var(--light_green);
+      background: var(--dark_green);
       padding: 10px 15px;
       display: flex;
       flex-wrap: wrap;
@@ -64,7 +80,7 @@
 
     nav a {
       text-decoration: none;
-      color: var(--text);
+      color: var(--light_grey);
       font-weight: bold;
       padding: 8px 12px;
       border-radius: 5px;
@@ -88,7 +104,8 @@
     }
 
     .section1 { background-color: var(--bg_colour);
-      border-bottom: 2px solid rgba(0, 0, 0, 0.08);}
+<!--      border-bottom: 2px solid rgba(0, 0, 0, 0.08);-->
+      }
 
     h2 {
       font-size: 1.6rem;
@@ -120,23 +137,61 @@
       background-color: var(--grey_green);
     }
 
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-    }
-
-    .photo-gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-
     .container{
       margin:100px auto;
       width:100rem auto;
       justify-content: center;
+    }
+
+    .carousel-container {
+      /* Optional: Set a specific height and hide potential vertical scrollbar */
+      height: 270px;
+      overflow: hidden;
+    }
+    .carousel-container-long {
+      /* Optional: Set a specific height and hide potential vertical scrollbar */
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      /* Allows horizontal scrolling */
+      overflow-x: scroll;
+      /* Smooth scrolling behavior */
+      scroll-behavior: smooth;
+      /* Ensures images snap into view */
+      scroll-snap-type: x mandatory;
+      gap:2px;
+    }
+
+    .carousel li {
+      /* Forces each item to take the full width of the container */
+      flex: 0 80 80%;
+      scroll-snap-align: center; /* Snaps the center of the item to the snap position */
+    }
+
+    .carousel img {
+      /* Ensures images fill their list item container */
+      width: 100%;
+      height: 100%; /* Or set a specific height if needed */
+      object-fit: cover; /* Ensures images cover the area without distortion */
+      display: block;
+    }
+
+
+    /* Optional: Hide scrollbar for a cleaner look (Chrome, Safari, Opera) */
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Optional: Hide scrollbar for Firefox */
+    .carousel {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
     }
 
     .calendar{
@@ -195,19 +250,42 @@
 
     /* Small device tweaks */
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+          header h1 {
+            font-size: 2rem;
+          }
 
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
+          header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url("./assets/banner-bkgrd-mobile.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+          }
 
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
+
+          nav {
+            flex-direction: row;
+            align-items: center;
+          }
+
+          .btn {
+            width: 100%;
+            text-align: center;
+          }
+
+<!--        .carousel-container {-->
+<!--          /* Optional: Set a specific height and hide potential vertical scrollbar */-->
+<!--          height: 270px;-->
+<!--          overflow: hidden;-->
+<!--        }-->
+        .carousel-container_long {
+          /* Optional: Set a specific height and hide potential vertical scrollbar */
+          height: 400px;
+          overflow: hidden;
+        }
+        .carousel li {
+          /* Forces each item to take the full width of the container */
+          flex: 0 0 80%;
+          scroll-snap-align: center; /* Snaps the center of the item to the snap position */
+        }
     }
 
     *{
@@ -218,169 +296,234 @@
 
 
 
-}
-  </style>
+
+
+
+
+    </style>
 </head>
 <body>
 
 <header id="home">
-  <p><i>Together with their families</i></p>
-  <h1>Colleen & Elliot </h1>
-  <p><i>Invite you to join them on</i></p>
-  <h3>Saturday, March 14th 2026</h3>
-  <p><i>to celebrate their wedding at</i></p>
-  <p><i>The Q Station Manly in Sydney, Australia</i></p>
-  <a class="btn" href="https://forms.gle/fh4DjwXabG7uk5Y57" target="_blank">RSVP</a>
+    <p><i>Together with their families</i></p>
+    <h1>Colleen & Elliot </h1>
+    <p><i>Invite you to join them on</i></p>
+    <h2>Saturday, March 14th 2026</h2>
+    <p><i>to celebrate their wedding at</i></p>
+    <p><i>The Q Station Manly in Sydney, Australia</i></p>
+    <a class="btn" href="https://forms.gle/fh4DjwXabG7uk5Y57" target="_blank">RSVP</a>
 </header>
 
 <nav>
-  <a href="#ourstory">Our Story</a>
-  <a href="#schedule">Schedule</a>
-  <a href="#travel">Travel</a>
-  <a href="#faq">FAQs</a>
-  <a href="#rsvp">RSVP</a>
+    <a href="#ourstory">Our Story</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#travel">Travel</a>
+    <a href="#faq">FAQs</a>
+    <a href="#rsvp">RSVP</a>
 </nav>
 
 <div id="ourstory" class="section section1">
-  <div class="section-inner">
-    <h2>Our Story</h2>
-    <p>
-      One rainy afternoon, after a soggy round of golf, two friends confessed they liked each other.
-      There was just one problem — Elliot had just accepted a job in America and was preparing to move!
-    </p>
-    <p>
-      Both insisted they weren’t the “long-distance relationship” type, so they decided to simply make the most of the few weeks before the big move. What began as an easy friendship quickly blossomed into something much more.
-    </p>
-    <p>
-      Despite the distance, their connection only grew stronger. Sharing “linners” (lunch-dinners across time zones) and keeping each other’s spirits high through the COVID years, they spent three years apart — yet never truly apart.
-    </p>
-    <p>
-      When Elliot returned to Sydney, they built a life together filled with laughter, adventure, and love.
-      Now, they’re thrilled to celebrate the next chapter of their story — surrounded by the friends and family who have supported them every step of the way.
-    </p>
-  </div>
+    <div class="section-inner">
+        <h2>Our Story</h2>
+        <p>
+            One rainy afternoon, after a soggy round of golf, two friends confessed they liked each other.
+            There was just one problem — Elliot had just accepted a job in America and was preparing to move!
+        </p>
+        <p>
+            Both insisted they weren’t the “long-distance relationship” type, so they decided to simply make the most of
+            the few weeks before the big move. What began as an easy friendship quickly blossomed into something much
+            more.
+        </p>
+        <p>
+            Despite the distance, their connection only grew stronger. Sharing “linners” (lunch-dinners across time
+            zones) and keeping each other’s spirits high through the COVID years, they spent three years apart — yet
+            never truly apart.
+        </p>
+        <p>
+            When Elliot returned to Sydney, they built a life together filled with laughter, adventure, and love.
+            Now, they’re thrilled to celebrate the next chapter of their story — surrounded by the friends and family
+            who have supported them every step of the way.
+        </p>
+    </div>
+</div>
+
+<div class="carousel-container">
+    <ul class="carousel">
+        <li><img src="./assets/gallery-land-1.jpg"></li>
+        <li><img src="./assets/gallery-land-2.jpg"></li>
+        <li><img src="./assets/gallery-land-3.jpg"></li>
+    </ul>
 </div>
 
 <div id="schedule" class="section section1">
-  <div class="section-inner">
-    <div class="calendar light">
-      <div class="calendar_header">
-        <h1 class = "header_title">Schedule</h1>
-        <p><i>We kindly ask guests to arrive before 3:00 p.m. as everyone will need to be shuttled to the service. Light refreshments are available on arrival.</i></p>
-      </div>
-      <div class="calendar_events">
-        <div class="event_item">
-          <div class="ei_Dot"></div>
-          <div class="ei_Title"><b>3:30 pm</b></div>
-          <div class="ei_Title">Ceremony</div>
+    <div class="section-inner">
+        <div class="calendar light">
+            <div class="calendar_header">
+                <h1 class="header_title">Schedule</h1>
+                <p><i>We kindly ask guests to arrive before 3:00 p.m. as everyone will need to be shuttled to the
+                    service. Light refreshments are available on arrival.</i></p>
+            </div>
+            <div class="calendar_events">
+                <div class="event_item">
+                    <div class="ei_Dot"></div>
+                    <div class="ei_Title"><b>3:30 pm</b></div>
+                    <div class="ei_Title">Ceremony</div>
+                </div>
+                <div class="event_item">
+                    <div class="ei_Dot"></div>
+                    <div class="ei_Title"><b>4:30 pm</b></div>
+                    <div class="ei_Title">Pre-reception Drinks</div>
+                </div>
+                <div class="event_item">
+                    <div class="ei_Dot"></div>
+                    <div class="ei_Title"><b>6:00 pm</b></div>
+                    <div class="ei_Title">Reception</div>
+                </div>
+            </div>
         </div>
-        <div class="event_item">
-          <div class="ei_Dot"></div>
-          <div class="ei_Title"><b>4:30 pm</b></div>
-          <div class="ei_Title">Pre-reception Drinks</div>
-        </div>
-        <div class="event_item">
-          <div class="ei_Dot"></div>
-          <div class="ei_Title"><b>6:00 pm</b></div>
-          <div class="ei_Title">Reception</div>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+
+<div class="carousel-container">
+    <ul class="carousel">
+        <li><img src="./assets/gallery-land-4.jpg"></li>
+        <li><img src="./assets/gallery-land-5.jpg"></li>
+        <li><img src="./assets/gallery-land-6.jpg"></li>
+    </ul>
 </div>
 
 <div id="travel" class="section section1">
-  <div class="section-inner">
-    <h2>How to get there</h2>
-    <p>
-      The ceremony and celebration will be held at <strong> The Q Station, Manly</strong>
-    </p>
-    <p>The Q Station entrance is easily accessible by car or ferry. A shuttle service is available on site to
-      assist guests to navigate from the entrance to the ceremony and reception venues and back to the carpark after the event.</p>
-    <h3>Car</h3>
-    <p>
-      If you are travelling by car, there is a car park at the entrance of Q station you can park in. From the entrance, you can take the complimentary shuttle service to the ceremony location by the front office.
-    </p>
-    <h3>Ferry</h3>
-    <p>If you'd like to take public transport, consider the scenic Manly Ferry. It is a 35-minute walk from Manly or a 5-minute Uber/taxi trip.
-      There may be carpool available to get guests from the ferry to the venue - please reach out to Colleen and Elliot for more information.  Alternatively, there is a public bus or a Q Station shuttle that you can take to and from Manly Wharf.</p>
-    <p>
-      <a href="https://maps.app.goo.gl/seLTHFbpTCmWZvz17" target="_blank">
-        View on Google Maps
-      </a>
-    </p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.9952057570827!2d151.2939616!3d-33.8124368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ab70fcd76709%3A0x2f49080956f7d1a9!2sQ%20Station%20Manly!5e0!3m2!1sen!2sau!4v1760863659490!5m2!1sen!2sau" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="section-inner">
+        <h2>How to get there</h2>
+        <p>
+            The ceremony and celebration will be held at <strong> The Q Station, Manly</strong>
+        </p>
+        <p>The Q Station entrance is easily accessible by car or ferry. A shuttle service is available on site to
+            assist guests to navigate from the entrance to the ceremony and reception venues and back to the carpark
+            after the event.</p>
+        <h3>Car</h3>
+        <p>
+            If you are travelling by car, there is a car park at the entrance of Q station you can park in. From the
+            entrance, you can take the complimentary shuttle service to the ceremony location by the front office.
+        </p>
+        <h3>Ferry</h3>
+        <p>If you'd like to take public transport, consider the scenic Manly Ferry. It is a 35-minute walk from Manly or
+            a 5-minute Uber/taxi trip.
+            There may be carpool available to get guests from the ferry to the venue - please reach out to Colleen and
+            Elliot for more information. Alternatively, there is a public bus or a Q Station shuttle that you can take
+            to and from Manly Wharf.</p>
+        <p>
+            <a href="https://maps.app.goo.gl/seLTHFbpTCmWZvz17" target="_blank">
+                View on Google Maps
+            </a>
+        </p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.9952057570827!2d151.2939616!3d-33.8124368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ab70fcd76709%3A0x2f49080956f7d1a9!2sQ%20Station%20Manly!5e0!3m2!1sen!2sau!4v1760863659490!5m2!1sen!2sau"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-  </div>
-</div>
-
-<div id="faq" class="section section1">
-  <div class="section-inner">
-    <div class="calendar light">
-      <div class="calendar_header">
-        <h1 class = "header_title">FAQs</h1>
-      </div>
-      <div class="calendar_events">
-        <div class="event_item">
-          <div class="ei_Dot"></div>
-          <div class="ei_Title">When is the RSVP deadline?</div>
-          <div class="ei_Copy">Please RSVP by <b>15th January 2026.</b></div>
-        </div>
-        <div class="event_item">
-          <div class="ei_Dot"></div>
-          <div class="ei_Title">What is the dress code?</div>
-          <div class="ei_Copy">Garden party formal</i>.
-            The ceremony will (hopefully) take place outdoors, so please dress for March afternoon in Sydney. The reception will be held indoors.</div>
-        </div>
-        <div class="event_item">
-          <div class="ei_Dot"></div>
-          <div class="ei_Title">Is there accommodation nearby?</div>
-          <div class="ei_Copy">Yes! Q Station has accommodation available onsite! A few of us will be staying there the Saturday night. All guests of the wedding can use our 10% discount code by
-            booking via <a href="https://book-directonline.com/properties/qstationmanly1direct?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2026-03-14&checkOutDate=2026-03-15&promocode=WED1403"> this link.</a>
-            Please let either of us know if you experience any issues.
-          </div>
-          <div class="ei_Copy">If you can leave a note when booking that you are attending the wedding, the reservation team will try to arrange rooms closer to each other.
-          FYI, the King rooms are closest to the reception hall, the Queen Rooms are closest to the ceremony location.
-          </div>
-        </div>
-        <div class="event_item">
-          <div class="ei_Dot"></div>
-          <div class="ei_Title">Is there a registry for the wedding</div>
-          <div class="ei_Copy">Your presence is the greatest gift to us. However, if you wish to contribute, a wishing well will be available on the day.</div>
-        </div>
-        <div class="event_item">
-          <div class="ei_Dot"></div>
-          <div class="ei_Title">What time should we arrive?</div>
-          <div class="ei_Copy">Please arrive by 3:00 p.m. so we can begin the ceremony promptly at 3:30 p.m. It may take some time for the shuttle to move guests from the entrance to the ceremony location. There will also be sparkling wine available from 2:45 p.m.</div>
-        </div>
-        <div class="event_item">
-          <div class="ei_Dot"></div>
-          <div class="ei_Title">I am staying the night, after the reception, what do I do with my bags?</div>
-          <div class="ei_Copy">Check-in is available on the day from 2:00 p.m. so you can drop off your bags before the ceremony. Alternatively, you can let reception know that you are one of the guests attending the wedding, they will assist with bags as well.</div>
-        </div>
-        <div class="event_item">
-          <div class="ei_Dot"></div>
-          <div class="ei_Title">Are children welcome?</div>
-          <div class="ei_Copy">We hope you will understand our decision to make the wedding children-free, and take the opportunity to let your hair down and celebrate in style!</div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 
+<div class="carousel-container-long">
+    <ul class="carousel">
+        <li><img src="./assets/gallery-port-1.jpg"></li>
+        <li><img src="./assets/gallery-port-2.jpg"></li>
+        <li><img src="./assets/gallery-port-3.jpg"></li>
+    </ul>
+</div>
+<div id="faq" class="section section1">
+    <div class="section-inner">
+        <div class="calendar light">
+            <div class="calendar_header">
+                <h1 class="header_title">FAQs</h1>
+            </div>
+            <div class="calendar_events">
+                <div class="event_item">
+                    <div class="ei_Dot"></div>
+                    <div class="ei_Title">When is the RSVP deadline?</div>
+                    <div class="ei_Copy">Please RSVP by <b>15th January 2026.</b></div>
+                </div>
+                <div class="event_item">
+                    <div class="ei_Dot"></div>
+                    <div class="ei_Title">What is the dress code?</div>
+                    <div class="ei_Copy">Garden party formal</i>.
+                        The ceremony will (hopefully) take place outdoors, so please dress for March afternoon in
+                        Sydney. The reception will be held indoors.
+                    </div>
+                </div>
+                <div class="event_item">
+                    <div class="ei_Dot"></div>
+                    <div class="ei_Title">Is there accommodation nearby?</div>
+                    <div class="ei_Copy">Yes! Q Station has accommodation available onsite! A few of us will be staying
+                        there the Saturday night. All guests of the wedding can use our 10% discount code by
+                        booking via <a
+                                href="https://book-directonline.com/properties/qstationmanly1direct?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=AUD&checkInDate=2026-03-14&checkOutDate=2026-03-15&promocode=WED1403">
+                            this link.</a>
+                        Please let either of us know if you experience any issues.
+                    </div>
+                    <div class="ei_Copy">If you can leave a note when booking that you are attending the wedding, the
+                        reservation team will try to arrange rooms closer to each other.
+                        FYI, the King rooms are closest to the reception hall, the Queen Rooms are closest to the
+                        ceremony location.
+                    </div>
+                </div>
+                <div class="event_item">
+                    <div class="ei_Dot"></div>
+                    <div class="ei_Title">Is there a registry for the wedding</div>
+                    <div class="ei_Copy">Your presence is the greatest gift to us. However, if you wish to contribute, a
+                        wishing well will be available on the day.
+                    </div>
+                </div>
+                <div class="event_item">
+                    <div class="ei_Dot"></div>
+                    <div class="ei_Title">What time should we arrive?</div>
+                    <div class="ei_Copy">Please arrive by 3:00 p.m. so we can begin the ceremony promptly at 3:30 p.m.
+                        It may take some time for the shuttle to move guests from the entrance to the ceremony location.
+                        There will also be sparkling wine available from 2:45 p.m.
+                    </div>
+                </div>
+                <div class="event_item">
+                    <div class="ei_Dot"></div>
+                    <div class="ei_Title">I am staying the night, after the reception, what do I do with my bags?</div>
+                    <div class="ei_Copy">Check-in is available on the day from 2:00 p.m. so you can drop off your bags
+                        before the ceremony. Alternatively, you can let reception know that you are one of the guests
+                        attending the wedding, they will assist with bags as well.
+                    </div>
+                </div>
+                <div class="event_item">
+                    <div class="ei_Dot"></div>
+                    <div class="ei_Title">Are children welcome?</div>
+                    <div class="ei_Copy">We hope you will understand our decision to make the wedding children-free, and
+                        take the opportunity to let your hair down and celebrate in style!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="carousel-container-long">
+    <ul class="carousel">
+        <li><img src="./assets/gallery-port-5.jpg"></li>
+        <li><img src="./assets/gallery-port-4.jpg"></li>
+        <li><img src="./assets/gallery-port-6.jpg"></li>
+    </ul>
+</div>
 
 <div id="rsvp" class="section section1">
-  <div class="section-inner">
-    <h2>RSVP</h2>
-    <p>
-      Please let us know if you'll be joining us to celebrate!
-    </p>
-    <a class="btn" href="https://forms.gle/fh4DjwXabG7uk5Y57" target="_blank">RSVP Form</a>
-  </div>
+    <div class="section-inner">
+        <h2>RSVP</h2>
+        <p>
+            Please let us know if you'll be joining us to celebrate!
+        </p>
+        <a class="btn" href="https://forms.gle/fh4DjwXabG7uk5Y57" target="_blank">RSVP Form</a>
+    </div>
 </div>
 
+
 <footer>
-  With love, Colleen & Elliot – We look forward to celebrating with you on 14th March 💍
+    With love, Colleen & Elliot – We look forward to celebrating with you on 14th March 💍
 </footer>
 
 </body>
